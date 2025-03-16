@@ -14,7 +14,7 @@
       function redirectToWhatsApp() {
         const serviceTitle = document.getElementById("modalTitle").innerText;
         const serviceDescription = document.getElementById("modalDescription").innerText;
-        const phoneNumber = "9298130951"; // Número de WhatsApp
+        const phoneNumber = "92985130951"; // Número de WhatsApp
         const message = `Olá, gostaria de solicitar o serviço: *${serviceTitle}*.\nDescrição: ${serviceDescription}`;
         const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         window.location.href = url;
