@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
-    <link rel="manifest" href="manifest.json">
-    <title>Serviços Gerais</title>
-    <!-- Font Awesome CDN-->
-    <link
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+      <link rel="manifest" href="manifest.json">
+      <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
@@ -15,106 +14,245 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <section>
-      <div class="row">
-        <h2 class="section-heading">Nossos Serviços</h2>
-      </div>
-      <div class="row">
-        <div class="column">
-          <div class="card" onclick="openModal('Reparos Gerais', 'Realizamos reparos em geral, incluindo pequenos consertos em móveis, portas, janelas e muito mais.')">
-            <div class="icon-wrapper">
-              <i class="fas fa-hammer"></i>
-            </div>
-            <h3>Reparos Gerais</h3>
-            <p>
-              Realizamos reparos em geral, incluindo pequenos consertos em móveis, portas, janelas e muito mais.
-            </p>
-          </div>
-        </div>
-        <div class="column">
-          <div class="card" onclick="openModal('Pintura', 'Serviços de pintura residencial e comercial, com qualidade e acabamento impecável.')">
-            <div class="icon-wrapper">
-              <i class="fas fa-brush"></i>
-            </div>
-            <h3>Pintura</h3>
-            <p>
-              Serviços de pintura residencial e comercial, com qualidade e acabamento impecável.
-            </p>
-          </div>
-        </div>
-        <div class="column">
-          <div class="card" onclick="openModal('Manutenção Hidráulica', 'Solucionamos vazamentos, trocamos torneiras e realizamos manutenção em encanamentos.')">
-            <div class="icon-wrapper">
-              <i class="fas fa-wrench"></i>
-            </div>
-            <h3>Manutenção Hidráulica</h3>
-            <p>
-              Solucionamos vazamentos, trocamos torneiras e realizamos manutenção em encanamentos.
-            </p>
-          </div>
-        </div>
-        <div class="column">
-          <div class="card" onclick="openModal('lavagem de carro', '  Que tal lavar o carro sem sair de casa?')">
-            <div class="icon-wrapper">
-              <i class="fa-solid fa-car-side"></i>
-            </div>
-            <h3>lavagem de carro</h3>
-            <p>
-              Que tal lavar o carro sem sair de casa? serviço de lavagem sob demanda através Web Site
-            </p>
-          </div>
-        </div>
-        <div class="column">
-          <div class="card" onclick="openModal('Limpeza', 'Serviços de limpeza residencial e comercial, incluindo pós-obra e limpeza pesada.')">
-            <div class="icon-wrapper">
-              <i class="fas fa-broom"></i>
-            </div>
-            <h3>Limpeza</h3>
-            <p>
-              Serviços de limpeza residencial e comercial, incluindo pós-obra e limpeza pesada.
-            </p>
-          </div>
-        </div>
-        <div class="column">
-          <div class="card" onclick="openModal('Instalações Elétricas', 'Realizamos instalações e reparos elétricos com segurança e eficiência.')">
-            <div class="icon-wrapper">
-              <i class="fas fa-plug"></i>
-            </div>
-            <h3>Instalações Elétricas</h3>
-            <p>
-              Realizamos instalações e reparos elétricos com segurança e eficiência.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Modal -->
-    <div id="serviceModal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img src="img/logo.png" alt="Logo" />
-        <h2 id="modalTitle"></h2>
-        <p id="modalDescription"></p>
-        <button onclick="redirectToWhatsApp()">Solicitar Serviço</button>
-      </div>
-    </div>
+      <!--=============== REMIXICONS ===============-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
 
-        <!-- Modal de Boas-Vindas -->
-        <div id="welcomeModal" class="welcome-modal">
-          <div class="welcome-modal-content">
-            <h2>Bem-vindo(a) aos Serviços Gerais!</h2>
-            <p>
-              Oferecemos uma variedade de serviços para atender às suas necessidades, desde reparos e pintura até manutenção hidráulica e elétrica. Clique em "Ver Tabela de Preços" para conferir nossos valores ou selecione um serviço para saber mais.
-            </p>
-            <button onclick="closeWelcomeModal()">Entendi, vamos lá!</button>
+
+      <link rel="stylesheet" href="./service/style.css">
+      <link rel="stylesheet" href="./slidertab2/style.css">
+      <!--=============== CSS ===============-->
+      <link rel="stylesheet" href="styles.css">
+      <title>Serviços geral </title>
+   </head>
+   <body>
+      <!--=============== NAVBAR ===============-->
+      <nav class="nav">
+         <ul class="nav__list">
+            <li>
+               <a href="#home" class="nav__link active-link">
+                  <i class="ri-home-smile-2-line"></i>
+               </a>
+            </li>
+
+            <li>
+               <a href="#about" class="nav__link">
+                  <i class="ri-user-line"></i>
+               </a>
+            </li>
+
+            <!-- Expand list -->
+            <li>
+               <button class="nav__expand" id="nav-expand">
+                  <i class="ri-add-line nav__expand-icon" id="nav-expand-icon"></i>
+               </button>
+
+               <ul class="nav__expand-list" id="nav-expand-list">
+                  <li>
+                     <a href="#" class="nav__expand-link">
+                        <i class="ri-image-2-line"></i>
+                        <span>Gallery</span>
+                     </a>
+                  </li>
+      
+                  <li>
+                     <a href="#" class="nav__expand-link">
+                        <i class="ri-archive-line"></i>
+                        <span>Files</span>
+                     </a>
+                  </li>
+      
+                  <li>
+                     <a href="#" class="nav__expand-link">
+                        <i class="ri-bookmark-3-line"></i>
+                        <span>Saved</span>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+         
+            <li>
+               <a href="#projects" class="nav__link">
+                  <i class="ri-briefcase-line"></i>
+               </a>
+            </li>
+
+            <li>
+               <a href="#contact" class="nav__link">
+                  <i class="ri-send-plane-line"></i>
+               </a>
+            </li>
+         </ul>
+      </nav>
+
+    <!--==================== MAIN ====================-->
+      <main class="container">
+        <!-- Seção Home com Serviços -->
+        <section  id="home"> 
+         <h2 class="section-heading">Nossos Serviços</h2>
+          <div class="row">
+            <div class="column">
+              <div class="card" onclick="openModal('Reparos Gerais', 'Realizamos reparos em geral, incluindo pequenos consertos em móveis, portas, janelas e muito mais.')">
+                <div class="icon-wrapper">
+                  <i class="fas fa-hammer"></i>
+                </div>
+                <h3>Reparos Gerais</h3>
+                <p>
+                  Realizamos reparos em geral, incluindo pequenos consertos em móveis, portas, janelas e muito mais.
+                </p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="card" onclick="openModal('Pintura', 'Serviços de pintura residencial e comercial, com qualidade e acabamento impecável.')">
+                <div class="icon-wrapper">
+                  <i class="fas fa-brush"></i>
+                </div>
+                <h3>Pintura</h3>
+                <p>
+                  Serviços de pintura residencial e comercial, com qualidade e acabamento impecável.
+                </p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="card" onclick="openModal('Manutenção Hidráulica', 'Solucionamos vazamentos, trocamos torneiras e realizamos manutenção em encanamentos.')">
+                <div class="icon-wrapper">
+                  <i class="fas fa-wrench"></i>
+                </div>
+                <h3>Manutenção Hidráulica</h3>
+                <p>
+                  Solucionamos vazamentos, trocamos torneiras e realizamos manutenção em encanamentos.
+                </p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="card" onclick="openModal('Lavagem de Carro', 'Que tal lavar o carro sem sair de casa? Serviço de lavagem sob demanda através do site.')">
+                <div class="icon-wrapper">
+                  <i class="fa-solid fa-car-side"></i>
+                </div>
+                <h3>Lavagem de Carro</h3>
+                <p>
+                  Que tal lavar o carro sem sair de casa? Serviço de lavagem sob demanda através do site.
+                </p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="card" onclick="openModal('Limpeza', 'Serviços de limpeza residencial e comercial, incluindo pós-obra e limpeza pesada.')">
+                <div class="icon-wrapper">
+                  <i class="fas fa-broom"></i>
+                </div>
+                <h3>Limpeza</h3>
+                <p>
+                  Serviços de limpeza residencial e comercial, incluindo pós-obra e limpeza pesada.
+                </p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="card" onclick="openModal('Instalações Elétricas', 'Realizamos instalações e reparos elétricos com segurança e eficiência.')">
+                <div class="icon-wrapper">
+                  <i class="fas fa-plug"></i>
+                </div>
+                <h3>Instalações Elétricas</h3>
+                <p>
+                  Realizamos instalações e reparos elétricos com segurança e eficiência.
+                </p>
+              </div>
+            </div>
           </div>
+        </section>
+  
+        <!-- Seção About -->
+        <section class="section about" id="about">
+            <div class="about__container container">
+              <div class="about__content">
+                <h2 class="about__title">Sobre Nós</h2>
+                <p class="about__description">
+                  Somos uma empresa especializada em serviços gerais, oferecendo soluções de qualidade para reparos, pintura, manutenção hidráulica, elétrica e muito mais. Nosso objetivo é proporcionar praticidade e segurança para nossos clientes, com profissionais altamente qualificados e um atendimento personalizado.
+                </p>
+                <ul class="about__list">
+                  <li class="about__item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Profissionais certificados</span>
+                  </li>
+                  <li class="about__item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Atendimento rápido e eficiente</span>
+                  </li>
+                  <li class="about__item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Preços justos e transparentes</span>
+                  </li>
+                </ul>
+                <button class="about__button" onclick="redirectToWhatsApp()">Fale Conosco</button>
+              </div>
+              <div class="about__image">
+                <img src="img/logo.png" alt="Sobre Nós" />
+              </div>
+            </div>
+        </section>
+  
+        <!-- Seção Projects -->
+        <section class="section" id="projects">
+          <h1>PROJECTS</h1>
+       
+        </section>
+  
+        <section class="section contact" id="contact">
+            <div class="contact__container container">
+              <h2 class="contact__title">Entre em Contato</h2>
+              <p class="contact__description">
+                Tem alguma dúvida ou precisa de um orçamento? Preencha o formulário abaixo ou nos envie uma mensagem diretamente pelo WhatsApp.
+              </p>
+          
+              <!-- Formulário de Contato -->
+              <form class="contact__form" id="contactForm">
+                <div class="contact__form-group">
+                  <input type="text" id="name" name="name" placeholder="Seu Nome" required />
+                </div>
+                <div class="contact__form-group">
+                  <input type="email" id="email" name="email" placeholder="Seu E-mail" required />
+                </div>
+                <div class="contact__form-group">
+                  <textarea id="message" name="message" placeholder="Sua Mensagem" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="contact__button">Enviar Mensagem</button>
+              </form>
+          
+              <!-- Subseção "Trabalhe Conosco" -->
+              <div class="work-with-us">
+                <h3 class="work-with-us__title">Trabalhe Conosco</h3>
+                <p class="work-with-us__description">
+                  Estamos sempre em busca de talentos! Envie seu currículo e faça parte da nossa equipe.
+                </p>
+                <form class="work-with-us__form" id="workWithUsForm">
+                  <div class="work-with-us__form-group">
+                    <input type="text" id="fullName" name="fullName" placeholder="Nome Completo" required />
+                  </div>
+                  <div class="work-with-us__form-group">
+                    <input type="email" id="workEmail" name="workEmail" placeholder="Seu E-mail" required />
+                  </div>
+                  <div class="work-with-us__form-group">
+                    <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required />
+                  </div>
+                  <button type="submit" class="work-with-us__button">Enviar Currículo</button>
+                </form>
+              </div>
+            </div>
+       </section>
+      </main>
+  
+      <!-- Modal de Serviços -->
+      <div id="serviceModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <img src="img/logo.png" alt="Logo" />
+          <h2 id="modalTitle"></h2>
+          <p id="modalDescription"></p>
+          <button onclick="redirectToWhatsApp()">Solicitar Serviço</button>
         </div>
-
-    <script src="app.js"></script>
-
-  </body>
+      </div>
+      
+      <!--=============== MAIN JS ===============-->
+      <script src="main.js"></script>
+      <script src="./service/app.js"></script>
+      <script src="./slidertab2/app.js"></script>
+   </body>
 </html>
